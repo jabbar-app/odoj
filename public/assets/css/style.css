@@ -1,0 +1,147 @@
+.f-mono {
+    font-family: 'B612 Mono', monospace;
+}
+
+.f-default {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
+}
+
+.fw-normal {
+    font-weight: 400 !important;
+}
+
+.fw-bold {
+    font-weight: 600 !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #4DB8C7;
+    border-color: #4DB8C7;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #14A0B4;
+    border-color: #14A0B4;
+}
+
+.top-scroll-bar,
+.read-more:hover,
+.submit-btn:hover,
+.menu-toggle-icon.act:hover>span::after,
+.menu-toggle-icon.act:hover>span::before,
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"],
+.blue {
+    background-color: #14A0B4 !important;
+}
+
+/* Styling untuk container form */
+.search-container {
+    position: relative;
+    width: 200px;
+    /* Sesuaikan lebar sesuai kebutuhan */
+    margin-left: 12px;
+    /* Margin untuk posisi */
+    display: flex;
+    align-items: center;
+}
+
+/* Styling untuk ikon pencarian */
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    z-index: 2;
+    color: #6c757d;
+    font-size: 16px;
+    /* Ukuran ikon */
+    cursor: pointer;
+    /* Memberikan indikasi klik */
+}
+
+/* Styling untuk input */
+.search-input {
+    width: 100%;
+    padding-left: 35px;
+    height: 28px;
+    border-radius: 50px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Styling untuk input saat fokus */
+.search-input:focus {
+    border-color: #14A0B4;
+    box-shadow: 0 0 5px rgba(0, 204, 255, 0.5);
+}
+
+.btn-banner-close {
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    font-weight: 300;
+    font-size: 28px;
+    margin-top: -4px;
+}
+
+.menu-active {
+    color: #14A0B4 !important;
+}
+
+
+/* Inherit from Main CSS */
+.nav-tabs .nav-link.active {
+    color: #14A0B4;
+}
+
+.nav-tabs .nav-link.active:hover,
+.nav-tabs .nav-link.active:focus {
+    /* color: #FFFFFF; */
+}
+
+.nav-tabs .nav-link:not(.active):hover,
+.nav-tabs .nav-link:not(.active):focus,
+.nav-pills .nav-link:not(.active):hover,
+.nav-pills .nav-link:not(.active):focus {
+    color: #FFFFFF;
+}
+
+.btn-inisiator {
+    color: #fff;
+    background-color: #14A0B4;
+    border-color: #14A0B4;
+    transition: background-color 0.3s, border-color 0.3s;
+    /* Smooth transition */
+    transform: scale(1);
+    /* Ensure no scaling by default */
+}
+
+.btn-inisiator:hover {
+    color: #f8f9fa !important;
+    /* Slightly lighter white */
+    background-color: #117A8C !important;
+    /* Darker shade of blue */
+    border-color: #117A8C !important;
+    transform: scale(1);
+    /* Prevent any scaling effect */
+}
+
+.title-article {
+    font-size: 36px;
+    height: 56px;
+}
+
+.box-input-article {
+    border: none !important;
+    box-shadow: none !important;
+    margin-left: -14px;
+    margin-top: -8px;
+}
