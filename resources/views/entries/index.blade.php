@@ -2,6 +2,11 @@
 
 @section('content')
   <div class="container py-5">
+    <div class="row my-4">
+      <div class="col-12">
+        @include('layouts.ayat')
+      </div>
+    </div>
     <div class="row justify-content-center">
       <div class="col-12">
         <div class="card">
@@ -45,7 +50,8 @@
 
     <div class="row">
       <div class="col-12 my-4 text-center">
-        <a href="{{ route('groups.show', $report->group) }}" class="btn rounded-pill btn-secondary waves-effect waves-light">
+        <a href="{{ route('groups.show', $report->group) }}"
+          class="btn rounded-pill btn-secondary waves-effect waves-light">
           Kembali
         </a>
       </div>
