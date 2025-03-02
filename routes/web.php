@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     // return view('welcome');
     return redirect()->route('groups.index');
-});
+})->name('landing');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -25,7 +25,8 @@ Route::get('/reports/create/{group}', [ReportController::class, 'create'])->name
 Route::resource('reports', ReportController::class)->except(['create']);
 Route::get('/laporan', [ReportEntryController::class, 'search'])->name('entries.search');
 Route::post('/laporan', [ReportEntryController::class, 'find'])->name('entries.find');
-Route::get('/laporan/detail/{name}', [ReportEntryController::class, 'show'])->name('entries.show');
+Route::get('/laporan/check', [ReportEntryController::class, 'check'])->name('entries.check');
+Route::get('/laporan/detail', [ReportEntryController::class, 'show'])->name('entries.show');
 Route::resource('{report}/entries', ReportEntryController::class)->except(['show']);
 
 Route::middleware('auth')->group(function () {

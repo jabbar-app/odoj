@@ -41,7 +41,7 @@
                         </button>
                         <ul class="dropdown-menu">
                           <li><a href="{{ route('groups.edit-member', ['group' => $group, 'whatsapp' => $member['whatsapp']]) }}" class="dropdown-item">Edit</a></li>
-                          <li><a href="{{ route('entries.show', $member['name']) }}" class="dropdown-item">Detail</a></li>
+                          <li><a href="{{ route('entries.show', ['name' => $member['name']]) }}" class="dropdown-item">Detail</a></li>
                           <li>
                             <hr class="dropdown-divider">
                           </li>

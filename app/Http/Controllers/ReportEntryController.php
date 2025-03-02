@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
 use App\Models\Report;
 use App\Models\ReportEntry;
 use Illuminate\Http\Request;
@@ -160,12 +161,17 @@ class ReportEntryController extends Controller
         return redirect()->route('entries.index', $report)->with('success', 'Report created successfully! Now you can add entries for this report.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $name)
+    public function check()
     {
-        $entries = ReportEntry::where('name', $name)->get();
+        $group = Group::find(request('group_id'));
+        $groups = Group::all();
+        return view('entries.check', compact('group', 'groups'));
+    }
+
+    public function show()
+    {
+        $entries = ReportEntry::where('name', request('name'))->get();
+        // dd($entries);
 
         // Gabungkan recite_amount untuk tanggal yang sama
         $groupedEntries = $entries->groupBy(function ($entry) {
@@ -177,7 +183,7 @@ class ReportEntryController extends Controller
             ];
         })->values(); // Reset keys
 
-        return view('entries.show', compact('name', 'entries', 'groupedEntries'));
+        return view('entries.show', compact('entries', 'groupedEntries'));
     }
 
     /**

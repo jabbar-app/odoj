@@ -4,7 +4,7 @@
   <div class="container py-4">
     <div class="card mb-4">
       <div class="card-header">
-        <h4 class="card-title mb-0">Detail Laporan {{ $name }}</h4>
+        <h4 class="card-title mb-0">Detail Laporan {{ request('name') }}</h4>
       </div>
       <div class="card-body">
         <p class="card-text mb-1"><span class="text-muted">Group:</span> {{ $entries->first()->report->group->name }}</p>
