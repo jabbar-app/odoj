@@ -181,8 +181,9 @@ class ReportEntryController extends Controller
                 'date' => \Carbon\Carbon::parse($group->first()->report->report_date)->format('Y-m-d'), // Ambil tanggal dari report_date
                 'total_recite_amount' => $group->sum('recite_amount') // Jumlahkan recite_amount
             ];
-        })->values(); // Reset keys
-
+        })->values() // Reset keys
+            ->sortBy('date') // Urutkan berdasarkan tanggal (ascending)
+            ->values(); // Konversi kembali ke array setelah sorting
 
         return view('entries.show', compact('entries', 'groupedEntries'));
     }
