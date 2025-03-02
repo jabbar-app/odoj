@@ -27,7 +27,6 @@
         <table id="entriesTable" class="table">
           <thead>
             <tr>
-              <th>No</th>
               <th>Waktu</th>
               <th>Jumlah Bacaan</th>
               <th>Juz</th>
@@ -35,11 +34,10 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($entries as $index => $entry)
+            @foreach ($entries as $entry)
               <tr class="text-nowrap">
-                <td>{{ $index + 1 }}</td>
                 <td>{{ \Carbon\Carbon::parse($entry->report->report_date)->translatedFormat('j F Y') }}</td>
-                <td>{{ $entry->recite_amount }}</td>
+                <td>{{ $entry->recite_amount }} Hlm.</td>
                 <td>{{ $entry->juz }}</td>
                 <td>{{ $entry->status }}</td>
               </tr>
