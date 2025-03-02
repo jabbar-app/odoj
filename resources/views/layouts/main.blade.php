@@ -31,13 +31,13 @@
   <meta property="og:url" content="{{ request()->url() }}">
   <meta property="og:title" content="ODOJ by Generasi Cakrawala">
   <meta property="og:description" content="One Day One Juz (ODOJ) reporting management app.">
-  <meta property="og:image" content="{{ asset('assets/img/company/profpic.png') }}">
+  {{-- <meta property="og:image" content="{{ asset('assets/img/company/profpic.png') }}"> --}}
 
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="{{ request()->url() }}">
   <meta property="twitter:title" content="ODOJ by Generasi Cakrawala">
   <meta property="twitter:description" content="One Day One Juz (ODOJ) reporting management app.">
-  <meta property="twitter:image" content="{{ asset('assets/img/company/profpic.png') }}">
+  {{-- <meta property="twitter:image" content="{{ asset('assets/img/company/profpic.png') }}"> --}}
 
   @include('layouts.css')
   @yield('styles')

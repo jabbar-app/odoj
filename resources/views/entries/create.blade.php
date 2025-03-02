@@ -21,7 +21,7 @@
               <div class="form-group mb-3">
                 <label class="form-label" for="name">Nama Member</label>
                 <select id="name" name="name" class="select2 form-select @error('name') is-invalid @enderror"
-                  data-allow-clear="true">
+                  data-allow-clear="true" required>
                   <option value="" selected disabled>- Pilih Data -</option>
                   @foreach ($report->group->member ?? [] as $member)
                     <option value="{{ $member['name'] }}" {{ old('name') == $member['name'] ? 'selected' : '' }}>
@@ -38,7 +38,7 @@
               <div class="form-group mb-3">
                 <label class="form-label" for="recite_amount">Jumlah Halaman yang Dibaca Hari Ini</label>
                 <input type="number" name="recite_amount"
-                  class="form-control @error('recite_amount') is-invalid @enderror" value="{{ old('recite_amount') }}">
+                  class="form-control @error('recite_amount') is-invalid @enderror" value="{{ old('recite_amount') }}" required>
                 @error('recite_amount')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -48,7 +48,7 @@
               <div class="form-group mb-3">
                 <label class="form-label" for="juz">Juz yang Dibaca Hari Ini</label>
                 <select id="juz" name="juz" class="select2 form-select @error('juz') is-invalid @enderror"
-                  data-allow-clear="true">
+                  data-allow-clear="true" required>
                   <option value="" selected disabled>- Pilih Data -</option>
                   @for ($i = 1; $i <= 30; $i++)
                     <option value="Juz {{ $i }}" {{ old('juz') == "Juz $i" ? 'selected' : '' }}>Juz
@@ -64,7 +64,7 @@
               <div class="form-group mb-3">
                 <label class="form-label" for="status">Status ODOJ</label>
                 <select id="status" name="status" class="form-select @error('status') is-invalid @enderror"
-                  data-allow-clear="true">
+                  data-allow-clear="true" required>
                   <option value="" selected disabled>- Pilih Data -</option>
                   <option value="🐫 = 00:01 - 10:00 WIB"
                     {{ old('status') == '🐫 = 00:01 - 10:00 WIB' ? 'selected' : '' }}>🐫 = 00:01 - 10:00 WIB</option>
