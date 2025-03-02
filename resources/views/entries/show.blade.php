@@ -38,7 +38,7 @@
             @foreach ($entries as $index => $entry)
               <tr class="text-nowrap">
                 <td>{{ $index + 1 }}</td>
-                <td>{{ \Carbon\Carbon::parse($entry->created_at)->translatedFormat('j F Y') }}</td>
+                <td>{{ \Carbon\Carbon::parse($entry->report->report_date)->translatedFormat('j F Y') }}</td>
                 <td>{{ $entry->recite_amount }}</td>
                 <td>{{ $entry->juz }}</td>
                 <td>{{ $entry->status }}</td>
