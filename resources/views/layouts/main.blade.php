@@ -21,14 +21,24 @@
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-  <title>
-    @if (!empty($title))
-      {{ $title }} &nbsp;|&nbsp;
-    @endif
-    Generasi Cakrawala
-  </title>
+  <title>ODOJ by Generasi Cakrawala</title>
+  <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/company/favicon.png') }}" />
 
-  <meta name="description" content="" />
+  <meta name="description" content="One Day One Juz (ODOJ) reporting management app.">
+  <meta name="keywords" content="ODOJ, One Day One Juz, Gencar, Generasi Cakrawala, Ramadhan, Tilawah">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ request()->url() }}">
+  <meta property="og:title" content="ODOJ by Generasi Cakrawala">
+  <meta property="og:description" content="One Day One Juz (ODOJ) reporting management app.">
+  <meta property="og:image" content="{{ asset('assets/img/company/profpic.png') }}">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ request()->url() }}">
+  <meta property="twitter:title" content="ODOJ by Generasi Cakrawala">
+  <meta property="twitter:description" content="One Day One Juz (ODOJ) reporting management app.">
+  <meta property="twitter:image" content="{{ asset('assets/img/company/profpic.png') }}">
+
   @include('layouts.css')
   @yield('styles')
 </head>
