@@ -170,15 +170,15 @@ class ReportEntryController extends Controller
 
     public function show()
     {
+        // Ambil data entries berdasarkan nama
         $entries = ReportEntry::where('name', request('name'))->get();
-        // dd($entries);
 
-        // Gabungkan recite_amount untuk tanggal yang sama
+        // Gabungkan recite_amount untuk tanggal yang sama berdasarkan report->report_date
         $groupedEntries = $entries->groupBy(function ($entry) {
-            return \Carbon\Carbon::parse($entry->created_at)->format('Y-m-d'); // Group by date
+            return \Carbon\Carbon::parse($entry->report->report_date)->format('Y-m-d'); // Group by report_date
         })->map(function ($group) {
             return [
-                'date' => $group->first()->created_at, // Ambil tanggal
+                'date' => \Carbon\Carbon::parse($group->first()->report->report_date)->format('Y-m-d'), // Ambil tanggal dari report_date
                 'total_recite_amount' => $group->sum('recite_amount') // Jumlahkan recite_amount
             ];
         })->values(); // Reset keys
