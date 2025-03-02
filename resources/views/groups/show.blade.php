@@ -34,16 +34,32 @@
                     <td>{{ $member['name'] ?? 'N/A' }}</td>
                     <td>{{ $member['whatsapp'] ?? 'Tidak ada' }}</td>
                     <td>
-                      <form action="{{ route('groups.remove-member', $group) }}" method="POST"
-                        class="d-inline delete-form">
-                        @csrf
-                        @method('DELETE')
-                        <input type="hidden" name="name" value="{{ $member['name'] }}">
-                        <input type="hidden" name="whatsapp" value="{{ $member['whatsapp'] }}">
-                        <button type="submit" class="btn btn-danger btn-sm">
-                          Hapus
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-outline-info btn-sm dropdown-toggle waves-effect"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Pilih
                         </button>
-                      </form>
+                        <ul class="dropdown-menu">
+                          <li><a href="{{ route('groups.edit-member', ['group' => $group, 'whatsapp' => $member['whatsapp']]) }}" class="dropdown-item">Edit</a></li>
+                          <li><a href="{{ route('entries.show', $member['name']) }}" class="dropdown-item">Detail</a></li>
+                          <li>
+                            <hr class="dropdown-divider">
+                          </li>
+                          <li>
+                            <form action="{{ route('groups.remove-member', $group) }}" method="POST"
+                              class="d-inline delete-form">
+                              @csrf
+                              @method('DELETE')
+                              <input type="hidden" name="name" value="{{ $member['name'] }}">
+                              <input type="hidden" name="whatsapp" value="{{ $member['whatsapp'] }}">
+                              <button type="submit" class="dropdown-item">
+                                Hapus
+                              </button>
+                            </form>
+                          </li>
+                        </ul>
+                      </div>
+
                     </td>
                   </tr>
                 @empty
@@ -86,14 +102,27 @@
                   <tr>
                     <td>{{ $index + 1 }}</td>
                     <td>
-                      <div class="d-flex gap-2">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle waves-effect"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Pilih
+                        </button>
                         @php
                           $link = "https://inisiator.com/odoj/$report->id/entries/create";
                         @endphp
-
-                        <button class="btn btn-sm btn-outline-info h-auto"
-                          onclick="copyToClipboard('{{ $link }}')">Copy</button>
-                        <a href="{{ route('entries.create', $report) }}" class="btn btn-info btn-sm">Open</a>
+                        <ul class="dropdown-menu" style="">
+                          <li><button class="dropdown-item"
+                              onclick="copyToClipboard('{{ $link }}')">Salin</button></li>
+                          <li><a href="{{ route('reports.edit', $report) }}" class="dropdown-item">Edit</a></li>
+                          <li><a href="{{ route('entries.index', $report) }}" class="dropdown-item">Detail</a></li>
+                          <li>
+                            <hr class="dropdown-divider">
+                          </li>
+                          <li>
+                            <button class="dropdown-item delete-btn"
+                              data-url="{{ route('reports.destroy', $report) }}">Hapus</button>
+                          </li>
+                        </ul>
                       </div>
                     </td>
                     <td>{{ $report->report_date }}</td>
@@ -126,14 +155,12 @@
   </style>
 @endpush
 @push('scripts')
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     $(document).ready(function() {
       $('#groupsTable').DataTable();
       $('#reportsTable').DataTable();
     });
   </script>
-
 
   <script>
     function copyToClipboard(text) {

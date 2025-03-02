@@ -163,9 +163,21 @@ class ReportEntryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ReportEntry $reportEntry)
+    public function show(string $name)
     {
-        //
+        $entries = ReportEntry::where('name', $name)->get();
+
+        // Gabungkan recite_amount untuk tanggal yang sama
+        $groupedEntries = $entries->groupBy(function ($entry) {
+            return \Carbon\Carbon::parse($entry->created_at)->format('Y-m-d'); // Group by date
+        })->map(function ($group) {
+            return [
+                'date' => $group->first()->created_at, // Ambil tanggal
+                'total_recite_amount' => $group->sum('recite_amount') // Jumlahkan recite_amount
+            ];
+        })->values(); // Reset keys
+
+        return view('entries.show', compact('name', 'entries', 'groupedEntries'));
     }
 
     /**

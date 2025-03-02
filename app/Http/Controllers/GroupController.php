@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
+use App\Models\ReportEntry;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -23,6 +24,12 @@ class GroupController extends Controller
     {
         return view('groups.create');
     }
+
+    // public function showMember(Group $group, string $name)
+    // {
+    //     $entries = ReportEntry::where('name', $name)->get();
+    //     return view('groups.show-member', compact('entries'));
+    // }
 
     public function addMember(Group $group)
     {
@@ -59,6 +66,12 @@ class GroupController extends Controller
         $group->update(['member' => $members]); // Otomatis diubah ke JSON string
 
         return redirect()->route('groups.show', $group)->with('success', 'Member berhasil ditambahkan!');
+    }
+
+    public function editMember(Group $group, string $whatsapp)
+    {
+        dd($group);
+        return view('groups.add-member', compact('group'));
     }
 
     public function removeMember(Request $request, Group $group)

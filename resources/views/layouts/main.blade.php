@@ -37,6 +37,37 @@
   @yield('content')
   @include('layouts.js')
   @stack('scripts')
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tangkap semua tombol hapus
+      const deleteButtons = document.querySelectorAll('.delete-btn');
+
+      deleteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault(); // Mencegah default behavior
+
+          const url = this.getAttribute('data-url'); // Ambil URL penghapusan
+
+          // Tampilkan SweetAlert2
+          Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Data yang dihapus tidak dapat dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Jika dikonfirmasi, kirim request penghapusan
+              window.location.href = url;
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
