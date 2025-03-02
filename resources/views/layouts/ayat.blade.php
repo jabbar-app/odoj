@@ -2,7 +2,7 @@
   $ayah = getRandomAyah();
 @endphp
 
-<div class="card bg-primary text-white text-center h-100 p-3">
+<div class="card bg-primary text-white text-center p-3">
   <figure class="mb-0">
     <blockquote class="blockquote">
       <p class="arabic-text" style="font-size: 1.5rem; line-height: 2.5rem;">
