@@ -36,9 +36,9 @@
                   <tr>
                     <td>{{ $index + 1 }}</td>
                     <td>{{ $entry->name }}</td>
-                    <td>{{ $entry->recite_amount }}</td>
-                    <td>{{ $entry->juz }}</td>
-                    <td>{{ $entry->status }}</td>
+                    <td class="text-nowrap">{{ $entry->recite_amount }} Hlm.</td>
+                    <td class="text-nowrap">{{ $entry->juz }}</td>
+                    <td class="text-nowrap">{{ $entry->status }}</td>
                   </tr>
                 @endforeach
               </tbody>
