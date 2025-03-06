@@ -81,7 +81,7 @@ class ReportEntryController extends Controller
             $message .= "🥷PJ Bersaksi: " . $report->pj_bersaksi . "\n";
             $message .= "♻PJ Next Day: " . $report->pj_nextday . "\n\n";
             $message .= "Link Pengisian Laporan :\n";
-            $message .= "https://odoj.generasicakrawala.com/laporan/\n\n";
+            $message .= "https://odoj.inisiator.com/laporan/\n\n";
             $message .= "🔥SANTRI CAKRAWALA🔥:\n";
 
             // Loop melalui members dan tambahkan ke pesan
